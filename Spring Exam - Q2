@@ -1,0 +1,17 @@
+class Q2{
+
+    public static double sumOver(int x)
+    {   double sum = 0;
+        if(x==0)
+        return 0;
+        else  return (1.0/x)+sumOver(x-1);
+    }
+
+    public  static void main (String[] args) {
+    int x =3; double result;
+    result =sumOver(x);
+        System.out.println(""+result);
+    }
+        
+    
+}
