@@ -1,0 +1,82 @@
+import java.util.Arrays;
+
+class Q3 {
+/*      First Sol.
+    public static int indexOfMax(int[] x)
+    {   int max=x[0], maxIndex =0;
+        for(int i=1;i<x.length;i++)
+        {
+            for(int j=i+1;j<x.length;j++)
+            {
+            if(max<x[j])
+            {
+             max=x[j]; maxIndex=j;
+            }
+            }
+        }
+        return maxIndex;
+    }
+    public static int[] selectionSort(int[] x)
+    { int last = x.length-1;
+        int[] finalarray = new int[x.length];
+        for(int i=0;i<x.length;i++)
+        {
+           // int temp = x[last];
+           // x[last]=x[indexOfMax(x)];
+           // x[indexOfMax(x)]= temp;
+           int indx = indexOfMax(x);
+             finalarray[last]= x[indx];
+            x[indx]=0;
+            last --;
+            System.out.println(Arrays.toString(x));
+            System.out.println("zzz"+Arrays.toString(finalarray));
+
+        }
+
+        return finalarray;
+    }*/
+    //Second Sol.
+    public static int indexOfMax(int[] x,int size)
+    {   int max=x[0], maxIndex =0;
+        for(int i=0;i<size;i++)
+        {
+            for(int j=i+1;j<size;j++)
+            {
+            if(max<x[j])
+            {
+             max=x[j]; maxIndex=j;
+            }
+            }
+        }
+        return maxIndex;
+    }
+
+    public static int[] selectionSort(int[] x,int size)
+    {   int last = size-1;
+        for(int i=0;i<x.length;i++)
+        {
+            int indx = indexOfMax(x,size);
+            int temp = x[last];
+            x[last]=x[indx];
+            x[indx]= temp;
+           // x[last]= x[indx];
+            last --;
+            size --;
+            System.out.println(Arrays.toString(x));
+
+        }
+
+        return x;
+    }
+    public  static void main (String[] args) {
+    int[] array = {8,5,2,9,5,6,3};
+        int size = array.length;
+		int x = indexOfMax(array,size);
+        System.out.println(""+x);
+        array = selectionSort(array,size);
+		for(int i=0;i<array.length;i++)
+        System.out.print(array[i]+" "); 
+    }
+        
+    
+}
