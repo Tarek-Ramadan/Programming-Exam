@@ -1,0 +1,19 @@
+public class Q3 {
+
+    public static boolean containsOnly(int[] arr,int size,int target){
+        if(size ==0)
+        return true;
+        if(arr[size-1] == target)
+        return containsOnly(arr,size-1,target);
+        else return false;
+
+    }
+
+    public static void  main(String[] args) {
+        int[] x= {1,2,1,2,3};
+        int size = x.length;
+        int target =3;
+        System.out.println(""+containsOnly(x,size,target));
+    }
+    
+}
