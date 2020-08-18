@@ -1,0 +1,62 @@
+
+
+public class Q2 {
+    public static class list{
+        int size=0;
+        node head = null;
+        int index=0;
+        public list(int s)   {
+            this.size=s;
+        }
+        
+        public  void addToFront(int x){
+            node temp = new node(x);
+            if(head == null)
+            {
+            head = temp;
+            }
+            else {
+                temp.next = head;
+                head = temp;
+            }
+            size--;
+            System.out.println("inserting "+head.value);
+
+        }
+        public  void print(){
+            node temp = head;
+            while(temp != null)
+            {System.out.print(" "+temp.value);
+            temp = temp.next;
+        }
+        }
+
+
+        void peek(){
+            System.out.println(""+head.value);
+        }
+    }
+    public static class node{
+        int value;
+        node next = null;
+        node(int v){
+          this.value = v;
+        }
+
+    }
+
+
+
+    public static void  main(String[] args) {
+        list l1 = new list(5);
+        l1.addToFront(5);
+        l1.addToFront(8);
+        l1.addToFront(8);
+        l1.addToFront(8);
+        l1.addToFront(1);
+
+          l1.print();
+
+    }
+    
+}
