@@ -1,0 +1,62 @@
+import java.util.Arrays;
+
+class Hashtable {
+    private int array[];
+    private int capacity;
+    private int hash (int key) {
+    return key % capacity;
+    }
+    public Hashtable (int c) {
+        this.capacity =c;
+        array = new int[c];
+        Arrays.fill(array, -1);
+    }
+    public void insert (int x) {
+        int hashcode = hash(x);
+        if(array[hashcode] == -1)
+        {
+            array[hashcode] = x;
+        }
+        else if(array[hashcode] == x)
+                 return;
+        else { 
+            while(array[hashcode] != -1 && hashcode<capacity-1)
+            {
+                hashcode++;
+            }    
+            array[hashcode] = x;
+        }
+    }
+    public boolean find(int x) {
+        int hashcode = hash(x);
+        if(array[hashcode] == x)
+        return true;
+        else  while(array[hashcode] != -1 && hashcode<capacity-1)
+        {
+            if(array[hashcode] == x)return true;
+            hashcode++;
+        }    
+        return false;
+
+    }
+    public static void main(String[] args) {
+        Hashtable t = new Hashtable(15);
+        t.insert(15);
+        t.insert(30);
+        t.insert(45);
+        t.insert(60);
+        t.insert(2);
+        t.insert(4);
+        t.insert(55);
+        t.insert(0);
+        t.insert(75);
+        t.insert(90);
+        t.insert(105);
+        t.insert(1212);
+        //t.find(10);
+       System.out.println(Arrays.toString(t.array));
+       System.out.println(""+t.find(1));
+
+  
+      }
+   }
