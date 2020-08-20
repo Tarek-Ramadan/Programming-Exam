@@ -39,15 +39,10 @@ class Q3 {
     public static int indexOfMax(int[] x,int size)
     {   int max=x[0], maxIndex =0;
         for(int i=0;i<size;i++)
-        {
-            for(int j=i+1;j<size;j++)
+            if(max<x[i])
             {
-            if(max<x[j])
-            {
-             max=x[j]; maxIndex=j;
+             max=x[i]; maxIndex=i;
             }
-            }
-        }
         return maxIndex;
     }
 
